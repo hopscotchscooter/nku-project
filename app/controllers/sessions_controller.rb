@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_filter :require_authentication
   def create
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
-      session[:user_id] = student.id
+      session[:user_id] = user.id
       redirect_to users_path, notice: "Signed in!"
     else
       flash[:error] = "Invalid email or password"
