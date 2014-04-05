@@ -4,7 +4,13 @@ class GamesController < ApplicationController
   end
   
   def index
-    @game = Game.all
+    @games = Game.all
+  end
+  
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+    redirect_to games_url, notice: 'Game was successfully deleted.'
   end
   
   def create

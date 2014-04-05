@@ -15,7 +15,8 @@
       </div> 
           <% if current_user %>
           <p class="navbar-text current-student">
-          <%= link_to "All users", users_path %>
+          <%= link_to "All users", users_path %> |
+          <%= link_to "All games", games_path %>
            <% else %>
            <% end %>
       </p>
