@@ -1,0 +1,19 @@
+<h1>Add a game</h1>
+
+<%= form_for @game do |f| %>
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :platform %><br>
+  <%= f.text_field :platform %>
+</p>
+<p>
+  <%= f.label :release %><br>
+  <%= f.date_field :release %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

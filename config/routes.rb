@@ -2,6 +2,7 @@ NkuProject::Application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :games
   
   get "sign_out", to: "sessions#destroy"
   get "profile", to: "users#edit"

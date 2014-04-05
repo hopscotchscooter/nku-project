@@ -1,0 +1,28 @@
+<h1>Games</h1>
+
+<table class="userslist">
+  <thead>
+    <tr>
+      <th>Game Title</th>
+      <th>Platform</th>
+      <th>Release Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.title %></td>
+        <td><%= game.platform %></td>
+        <td><%= game.release %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game', new_game_path %>
