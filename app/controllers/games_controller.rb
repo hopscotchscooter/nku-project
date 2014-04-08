@@ -14,10 +14,12 @@ class GamesController < ApplicationController
   end
   
   def create
-    @game = Game.new(game_params)
-    
-    @game.save
-    redirect_to @game
+    @game = current_user.games.build(game_params)
+    if @game.save
+      redirect_to @game, notice: "Game successfully added"
+    else
+      render :new
+    end
   end
   
   def show
@@ -26,6 +28,6 @@ class GamesController < ApplicationController
   
   private
   def game_params
-    params.require(:game).permit(:title, :platform)
+    params.require(:game).permit!
   end
 end

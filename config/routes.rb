@@ -1,6 +1,7 @@
 NkuProject::Application.routes.draw do
-
-  resources :users
+  resources :users do
+    resources :games
+  end
   resources :sessions
   resources :games
   

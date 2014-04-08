@@ -1,5 +1,5 @@
 <h1>Add a game</h1>
-
+<% if current_user %>
 <%= form_for @game do |f| %>
 <p>
   <%= f.label :title %><br>
@@ -14,6 +14,7 @@
   <%= f.text_field :release %>
 </p>
 <p>
-  <%= f.submit %>
+  <%= f.submit "Add Game" %>
 </p>
+<% end %>
 <% end %>
