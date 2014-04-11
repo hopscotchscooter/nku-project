@@ -1,4 +1,5 @@
-<h1>Users</h1>
+<p id="notice"><%= notice %></p>
+<h1>DuckGoose Users</h1>
 
 <table class="userslist">
   <thead>
@@ -20,7 +21,7 @@
         <td><%= user.firstname %></td>
         <td><%= user.lastname %></td>
         <td><%= user.email %></td>
-        <td><%= user.inspect %></td>
+        <td><%= link_to "Add as friend", friendships_path(:friend_id => user.id), :method => :post %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

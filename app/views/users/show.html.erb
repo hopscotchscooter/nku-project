@@ -1,24 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h2>Friends</h2>
+<ul>
+  <% @user.friendships.each do |friendship| %>
+    <li>
+      <%=h friendship.friend.username %>
+      (<%= link_to "remove", friendship, :method => :delete %>)
+    </li>
+  <% end %>
+</ul>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @user.firstname %>
-</p>
+<p><%= link_to "Find Friends", users_path %></p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<h2>Friended by Users</h2>
+<ul>
+  <% for user in @user.inverse_friends %>
+    <li><%=h user.username %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

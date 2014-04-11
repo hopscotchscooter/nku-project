@@ -9,7 +9,7 @@
 <body>
 <div class="container">
   <nav class="navbar navbar-default">
-    <div class="navbar-header">
+     <div class="navbar-inner">
       <div class="navbar-brand">
         <%= link_to "DuckGoose", users_path %>
       </div> 
@@ -24,7 +24,7 @@
 
     <div class="collapse navbar-collapse navbar-right">
        <% if current_user %>
-             Hi <%= current_user.username %>! <%= link_to "Edit your profile", profile_path %>
+          <%= link_to "Edit your profile", profile_path %>
           <%= link_to "Sign out", sign_out_path, class: "btn btn-default navbar-btn" %>
        <% else %>
           <%= link_to "Sign up", new_user_path, class: "btn btn-default navbar-btn" %>
