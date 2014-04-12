@@ -32,9 +32,13 @@
        <% end %>
     </div>
   </nav>
-
-
-  <%= yield %>
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %> push--top">
+      <%= value %>
+    </div>
+  <% end %>
+  
+<%= yield %>
 </div>
 </body>
 </html>
