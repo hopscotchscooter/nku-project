@@ -7,6 +7,10 @@ class GamesController < ApplicationController
     @games = Game.all
   end
   
+  def edit
+    @game = Game.find(params[:id])
+  end
+  
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
@@ -19,6 +23,16 @@ class GamesController < ApplicationController
       redirect_to @game, notice: "Game successfully added"
     else
       render :new
+    end
+  end
+  
+  def update
+    @game = Game.find(params[:id])
+    
+    if @game.update(game_params)
+    redirect_to games_path, notice: "Successfully updated game."
+    else
+      render 'edit'
     end
   end
   

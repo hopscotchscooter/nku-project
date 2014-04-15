@@ -1,3 +1,5 @@
+<h2><%= @user.username %>'s profile</h2>
+<p>You currently have <%= @user.friends.count %> friend(s).</p>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
