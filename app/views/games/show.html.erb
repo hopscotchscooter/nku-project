@@ -10,14 +10,19 @@
   <%= @game.release %>
 </p>
 
+<p>
+  <strong>Added by:</strong>
+    <%= @game.user.username %>
+</p>
+    
+
 
  
 <h3>Add comment about <%= @game.title %>:</h3>
   <% @game.comments.each do |comment| %>
       <%= comment.content %><br>
-<i>Added by <strong><%= comment.author %></strong></i><br>
-      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-      <br>
+      <i>Added by <strong><%= comment.author %></strong></i><br>
+     <br>
   <% end %>
 
 <%= form_for([@game, @game.comments.build]) do |f| %>

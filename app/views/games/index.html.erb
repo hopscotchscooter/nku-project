@@ -17,9 +17,6 @@
         <td><%= game.platform %></td>
         <td><%= game.release %></td>
         <td><%= game.user.username %></td>
-        <td></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
