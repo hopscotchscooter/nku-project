@@ -12,7 +12,7 @@
 
 <p>
   <strong>Added by:</strong>
-    <%= @game.user.username %>
+  <%= @game.user.try(:username) %>
 </p>
     
 

@@ -16,7 +16,7 @@
         <td><%= link_to game.title, game %></td>
         <td><%= game.platform %></td>
         <td><%= game.release %></td>
-        <td><%= game.user.username %></td>
+        <td><%= game.user.try(:username) %></td>
       </tr>
     <% end %>
   </tbody>
