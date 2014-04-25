@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_secure_password 
    
-  
+  def avatar
+    Avatar.from_user(self)
+  end
 end
