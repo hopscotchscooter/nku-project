@@ -1,4 +1,4 @@
-<h2><%= @user.username %>'s profile</h2>
+<h2><%= image_tag @user.avatar %> <%= @user.username %>'s profile</h2>
 <p><%= @user.username %> has <%= pluralize @user.friends.count, "friend" %></p>
 <br>
 <table class="table table-striped table-bordered table-condensed">
