@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430202946) do
+ActiveRecord::Schema.define(version: 20140430220454) do
 
   create_table "avatars", force: true do |t|
     t.datetime "created_at"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140430202946) do
   create_table "comment_votes", force: true do |t|
     t.integer  "comment_id"
     t.integer  "user_id"
-    t.integer  "score",      default: 0
+    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,5 @@
 NkuProject::Application.routes.draw do
+  resources :users
   resources :users do
     resources :games
     resources :friendships
@@ -12,7 +13,6 @@ NkuProject::Application.routes.draw do
   resources :sessions
   resources :games
   resources :friendships
-  resources :ratings
   resources :comments do
     member { post :vote }
   end

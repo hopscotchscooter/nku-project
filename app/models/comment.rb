@@ -4,12 +4,12 @@ class Comment < ActiveRecord::Base
   has_many :comment_votes
   
   def self.by_votes
-    select('comments.*, coalesce(score, 0) as votes').
+      select('comments.*, coalesce(score, 0) as votes').
       joins('left join comment_votes on comment_id=comments.id').
       order('votes desc')
   end
   
   def votes
-    read_attributes(:votes) || comment_votes.sum(:score)
+   comment_votes.sum(:score)
   end
 end

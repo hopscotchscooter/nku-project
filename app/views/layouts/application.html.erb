@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse navbar-right">
        <% if current_user %>
       Logged in as <%= current_user.username %> <%= image_tag current_user.avatar, size: "40x40" %> 
-          (<%= current_user.total_votes %>) | 
+      (<%= current_user.total_votes %>) | 
           <%= link_to "Edit your profile", profile_path %>
           <%= link_to "Sign out", sign_out_path, class: "btn btn-default navbar-btn" %>
        <% else %>
