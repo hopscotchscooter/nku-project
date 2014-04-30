@@ -12,7 +12,10 @@ NkuProject::Application.routes.draw do
   resources :sessions
   resources :games
   resources :friendships
-  resources :comments
+  resources :ratings
+  resources :comments do
+    member { post :vote }
+  end
   
   get "sign_out", to: "sessions#destroy"
   get "profile", to: "users#edit"

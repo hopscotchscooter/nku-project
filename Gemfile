@@ -11,6 +11,7 @@ gem 'thin'
 gem 'bcrypt-ruby'
 
 
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

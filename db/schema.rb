@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425194110) do
+ActiveRecord::Schema.define(version: 20140430202946) do
 
   create_table "avatars", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comment_votes", force: true do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.integer  "score",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comment_votes", ["comment_id"], name: "index_comment_votes_on_comment_id"
+  add_index "comment_votes", ["user_id"], name: "index_comment_votes_on_user_id"
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -45,6 +56,17 @@ ActiveRecord::Schema.define(version: 20140425194110) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.integer  "score",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["comment_id"], name: "index_ratings_on_comment_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

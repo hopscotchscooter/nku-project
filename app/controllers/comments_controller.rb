@@ -24,7 +24,16 @@ class CommentsController < ApplicationController
     redirect_to games_path, notice: "Comment deleted"
   end
   
-    private
+  def vote
+    vote = current_user.comment_votes.new(score: params[:score], comment_id: params[:id])
+    if vote.save
+      redirect_to games_path, notice: "Vote tallied"
+    else
+      redirect_to games_path, alert: "Unable to vote"
+    end
+  end
+  
+  private
   def comment_params
     params.require(:comment).permit(:content)
     end

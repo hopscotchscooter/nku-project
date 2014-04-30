@@ -38,6 +38,7 @@ class GamesController < ApplicationController
   
   def show
     @game = Game.find(params[:id])
+    @comments = Comment.by_votes
   end
   
   private
