@@ -10,6 +10,6 @@ class Comment < ActiveRecord::Base
   end
   
   def votes
-   comment_votes.sum(:score)
+   comment_votes.sum('score')
   end
 end

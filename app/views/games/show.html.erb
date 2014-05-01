@@ -1,4 +1,3 @@
-<script>$('#star').raty();</script>
 
 <h1><%= @game.title %></h1>
 
@@ -33,10 +32,9 @@
 
 <%= form_for([@game, @game.comments.build]) do |f| %>
 <p><br>
-   <%= f.text_area :content %>
-</p>
+  <%= f.text_area :content, :size => "100", :placeholder => "Leave a comment" %>
 <p>
-  <%= f.submit %>
+  <%= f.submit "Post comment" %>
 </p>
 <% end %>
   

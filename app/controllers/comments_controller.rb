@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   def vote
     vote = current_user.comment_votes.new(score: params[:score], comment_id: params[:id])
     if vote.save
-      redirect_to games_path, notice: "Vote tallied"
+      redirect_to games_path, notice: "Vote recorded"
     else
       redirect_to games_path, alert: "Unable to vote"
     end
